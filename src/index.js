@@ -27,6 +27,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.use('/assets', express.static(path.join(__dirname, '../public')));
+
 // home page
 app.get('/', (req, res) => {
   const userList = users
@@ -36,11 +38,19 @@ app.get('/', (req, res) => {
     .join('');
   const filesList = files
     .map((file) => {
-      return `<li><a href="/api/file/${file.filename}" target="_blank">download</a>: ${file.originalname} / ${file.fileSize} bytes / ${file.date}</li>`;
+      return `<tr>
+      <td>${file.originalname}</td>
+      <td>${file.fileSize} </td>
+      <td>${file.date}</td>
+      <td><a href="/api/file/${file.filename}" target="_blank">download</a></td>
+      </tr>`;
     })
     .join('');
   let homePage = home.replace('{ users }', `<ul>${userList}</ul>`);
-  homePage = homePage.replace('{ files }', `<ul>${filesList}</ul>`);
+  homePage = homePage.replace(
+    '{ files }',
+    filesList || '<td colspan="4" class="no-data">No files</td>'
+  );
   res.send(homePage);
 });
 

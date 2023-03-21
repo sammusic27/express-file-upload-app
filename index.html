@@ -2,47 +2,47 @@
 <html>
   <head>
     <title>Upload Application</title>
+    <link href="/assets/styles.css" rel="stylesheet" />
   </head>
   <body>
-    <nav>
-      <ul>
-        <li id="signup"><a href="/signup">SignUp</a></li>
-        <li id="signin"><a href="/signin">SignIn</a></li>
-        <li id="logout"><a href="/api/logout">Logout</a></li>
-      </ul>
-    </nav>
-    <h1>Users</h1>
-    <div>{ users }</div>
-    <h2>Files</h2>
-    <form
-      id="upload-file"
-      method="post"
-      action="/api/upload"
-      enctype="multipart/form-data">
-      <input type="file" name="file" />
-      <button type="submit">Upload</button>
-    </form>
-    <div>{ files }</div>
-    <script>
-      function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-      }
-
-      function eraseCookie(name) {
-        document.cookie =
-          name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-      }
-
-      const auth = getCookie('auth');
-      if (auth) {
-        document.getElementById('signup').remove();
-        document.getElementById('signin').remove();
-      } else {
-        document.getElementById('upload-file').remove();
-        document.getElementById('logout').remove();
-      }
-    </script>
+    <div id="container">
+      <header id="header">
+        <nav id="nav">
+          <ul>
+            <li class="active"><a href="/">Home</a></li>
+            <li id="signup"><a href="/signup">SignUp</a></li>
+            <li id="signin"><a href="/signin">SignIn</a></li>
+            <li id="logout"><a href="/api/logout">Logout</a></li>
+          </ul>
+        </nav>
+      </header>
+      <h1>Users</h1>
+      <div id="users-wrapper">{ users }</div>
+      <h2>Files</h2>
+      <form
+        id="upload-file"
+        method="post"
+        action="/api/upload"
+        enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <button type="submit">Upload</button>
+      </form>
+      <div id="files-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>File Name</th>
+              <th>File Size</th>
+              <th>Upload Date</th>
+              <th>Download</th>
+            </tr>
+          </thead>
+          <tbody>
+            { files }
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script src="/assets/main.js" defer></script>
   </body>
 </html>

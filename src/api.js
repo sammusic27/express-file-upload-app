@@ -111,9 +111,7 @@ const upload = multer({
 
 router.post('/upload', authMiddleware, (req, res) => {
   upload(req, res, function (err) {
-    if (err instanceof multer.MulterError) {
-      // A Multer error occurred when uploading.
-    } else if (err) {
+    if (err) {
       // An unknown error occurred when uploading.
       return res.status(400).json({
         message: err,

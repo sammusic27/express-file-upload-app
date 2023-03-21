@@ -1,11 +1,32 @@
-<form method="POST" action="/api/signin">
-  <div>
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username" />
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password" />
-  </div>
-  <button type="submit">SignIn</button>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload Application</title>
+    <link href="/assets/styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="container">
+      <header id="header">
+        <nav id="nav">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li id="signup"><a href="/signup">SignUp</a></li>
+            <li id="signin" class="active"><a href="/signin">SignIn</a></li>
+          </ul>
+        </nav>
+      </header>
+      <form method="POST" action="/api/signin">
+        <div>
+          <label for="username">Username</label>
+          <input id="username" type="text" name="username" />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input id="password" type="password" name="password" />
+        </div>
+        <button type="submit">SignIn</button>
+      </form>
+    </div>
+    <script src="/assets/main.js" defer></script>
+  </body>
+</html>

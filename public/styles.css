@@ -1,0 +1,94 @@
+body {
+  font: 14px/17px Arial, Verdana, sans-serif;
+  background: #ccc;
+  color: #333;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+  color: blue;
+}
+a:hover {
+  text-decoration: underline;
+}
+h1 {
+  margin: 0 0 20px;
+  font-size: 22px;
+  line-height: 27px;
+}
+h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  line-height: 25px;
+}
+form {
+  display: block;
+  padding: 15px;
+  border: 1px solid #999;
+}
+input[type='password'],
+input[type='text'] {
+  display: inline-block;
+  padding: 5px 10px;
+  color: #333;
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin: 0 0 5px;
+  outline: none;
+}
+form label {
+  min-width: 150px;
+  display: inline-block;
+}
+form button {
+  display: inline-block;
+  border: 1px solid #333;
+  background: #fff;
+  border-radius: 5px;
+  padding: 4px 15px;
+  color: #333;
+  cursor: pointer;
+}
+form button:hover {
+  background: #ddd;
+}
+#container {
+  width: 580px;
+  margin: 0 auto;
+  padding: 10px;
+  background: #fdfdfd;
+}
+#header {
+  margin: 0 0 50px;
+}
+#nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+#nav ul li {
+  padding: 15px;
+}
+#nav ul li.active {
+  background-color: #555;
+}
+#nav ul li.active a {
+  color: #fff;
+}
+table {
+  width: 100%;
+  border: 1px solid #333;
+  border-collapse: collapse;
+}
+table th {
+  font-weight: bold;
+}
+table th,
+table td {
+  border: 1px solid #333;
+  padding: 5px;
+}
+table td.no-data {
+  text-align: center;
+}
